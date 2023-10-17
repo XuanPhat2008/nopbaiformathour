@@ -38,9 +38,21 @@ get_24hformat_hour('11 AM')            | 11                     | 10
 get_24hformat_hour('10 PM')            | 22                     | 11
 get_24hformat_hour('11 PM')            | 23                     | 12
 """
+
 #endregion debai
+
 
 #region bailam
 def get_24hformat_hour(hour_str):
-  return 'todo'
+    hr = hour_str.lower()
+    hr = hr.replace(" ", "")
+    if "am" in hr:
+        hr = hr.replace("am", "")
+        return hr
+    else:
+        hr = hr.replace("pm", "")
+        hr = int(hr) + 12
+        return str(hr)
+
+
 #endregion bailam
